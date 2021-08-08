@@ -13,27 +13,43 @@ servers:
   - url: https://server2.com
     description: backupserver
 paths:
-  /v1/restaurants:
+  /v1/restaurants/:
     get:
-    tags: 
-      - restaurants
-    summary: restaurants addresses
-    description: gets the addresses of restaurants
-    parameters:
-      - name: restaurants
-        in: path
-        required: true
-  /v1/restaurants/new:
-    post:
-    tags:
-      - restaurants 
-    summary: creates resturants
-    description: adds new 
-    parameters:
-      - name: new
-        in: path
-        required: true
-        
+      parameters:
+        - name: restaurants
+          in: path
+          description: retrieves names of restaurants
+          required: true
+          schema: 
+            type: string
+            minLength: 2
+            maxLengt: 10
+            example: Indian
+      responses:
+        "200":
+          description: successful
+          content: 
+            application/jason:
+  /v1/restaurants/{restaurantsID}:
+    get:
+    summary: restaurants Identification number
+    description: retrieves a 4 digit code of restaurants
+      parameters:
+        - name: restaurants
+          in: path
+          required: true 
+          schema:
+            type: string
+      responses:
+        "200":
+          description: successful
+          content: 
+            application/jason:
+      
+
+  
+
+
       
 
         
