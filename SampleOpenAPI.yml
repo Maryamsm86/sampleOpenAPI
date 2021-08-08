@@ -18,4 +18,13 @@ servers:
     description: backup server
 paths:
   /v1/cosmetics/:
-  
+    get:
+      parameters:
+        - name: cosmetics
+          in: path
+          required: true
+        responses: 
+          "200":
+            description: successful
+
+
