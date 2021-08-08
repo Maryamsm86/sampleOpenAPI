@@ -8,7 +8,36 @@ info:
     url: https://fidilio.com/
     email: info@fidilio.com
 servers:
-  - url: 
+  - url: https://server1.com
+    description: development servers
+  - url: https://server2.com
+    description: backupserver
+paths:
+  /v1/restaurants:
+    get:
+    tags: 
+      - restaurants
+    summary: restaurants addresses
+    description: gets the addresses of restaurants
+    parameters:
+      - name: restaurants
+        in: path
+        required: true
+  /v1/restaurants/new:
+    post:
+    tags:
+      - restaurants 
+    summary: creates resturants
+    description: adds new 
+    parameters:
+      - name: new
+        in: path
+        required: true
+        
+      
+
+        
+
   
     
   
