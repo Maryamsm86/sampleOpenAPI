@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: '1.0'
-  title: OpenAPI Test
+  title: makeUP
   description: 'Specification for OpenAPItest course'
   termsOfService: https://example.com/terms/ 
   contact:
@@ -16,4 +16,6 @@ servers:
     description: development server 
   - url: http://dev.zoomit.com
     description: backup server
-
+paths:
+  /v1/cosmetics/:
+  
