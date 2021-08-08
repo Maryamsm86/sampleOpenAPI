@@ -19,12 +19,11 @@ servers:
 paths:
   /v1/cosmetics/:
     get:
-      parameters:
-        - name: cosmetics
-          in: path
-          required: true
-        responses: 
+      responses: 
           "200":
-            description: successful
+            description: retrieves cosmetics
+        
+
+            
 
 
