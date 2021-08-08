@@ -1,0 +1,15 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: FoodAdvice OpenAPI
+  description: Retrieves food reviews
+  contact:
+    name: FoodAdvice
+    url: https://fidilio.com/
+    email: info@fidilio.com
+servers:
+  - url: 
+  
+    
+  
+
