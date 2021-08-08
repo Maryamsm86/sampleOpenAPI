@@ -1,60 +1,101 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
-  title: FoodAdvice OpenAPI
-  description: Retrieves food reviews
+  version: '1.1'
+  title: OpenAPI Test
+  description: 'Specification for OpenAPItest course'
+  termsOfService: https://example.com/terms/ 
   contact:
-    name: FoodAdvice
-    url: https://fidilio.com/
-    email: info@fidilio.com
-servers:
-  - url: https://server1.com
-    description: development servers
-  - url: https://server2.com
-    description: backupserver
+     name: Maryam
+     url: https://digiato.com/author/maryammousavi/
+     email: mousavi.digiato@gmail.com
+  license:
+    name: Apache 2.0
+    url:  https://www.apache.org/licenses/LICENSE-2.0.html
+servers: 
+  - url: http://dev.digiato.com 
+    description: development server 
+  - url: http://dev.zoomit.com
+    description: backup server
 paths:
-  /v1/restaurants/:
+  /v1/customers/:
     get:
-      parameters:
-        - name: restaurants
-          in: path
-          description: retrieves names of restaurants
-          required: true
-          schema: 
-            type: string
-            minLength: 2
-            maxLengt: 10
-            example: Indian
+      responses: 
+        "200":
+          description: found customer
+      
+  /v1/customers/{customerID}:
+    get:
+      parameters: 
+      - name: customerID
+        in: path
+        description: customer ID
+        required: true
+        schema:
+          type: string
+          format: uuid 
+      responses: 
+        "200":
+          description: found customer
+
+  /v1/inventory/:
+    get:
       responses:
         "200":
-          description: successful
-          content: 
-            application/jason:
-  /v1/restaurants/{restaurantsID}:
-    get:
-    summary: restaurants Identification number
-    description: retrieves a 4 digit code of restaurants
-      parameters:
-        - name: restaurants
-          in: path
-          required: true 
-          schema:
-            type: string
-      responses:
-        "200":
-          description: successful
-          content: 
-            application/jason:
-      
+          description: list of inventory items
 
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        line1: 
+          type: string
+          example: Sjösavägen 77
+        city: 
+          type: string
+          example: Stockholm
+        statecode: 
+          type: string
+          minLength: 2
+          maxLength: 2
+          enum: [CA, AL, AK, AZ]
+        zipCode: 
+          type: string
+          example: 12455
+        telephone: 
+          type: string
+          example: 765830144 
+    customer:
+      type: object
+      description: customer object
+      properties:
+        firstname:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: Maryam
+        lastname:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: Mousavi
+        address:
+          $ref: "#/components/schemas/Address"
+    customerlist:
+      type: array
+      minLength: 1
+      maxLength: 100
+      description: list of customers
+      items:
+        $ref: "#/components/schemas/customer"
+    inventory: 
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 2
+          maxLength: 10
+          example: beer
+        size: 
+          type: string
   
-
-
-      
-
-        
-
-  
-    
-  
-
