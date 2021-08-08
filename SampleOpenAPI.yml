@@ -19,10 +19,16 @@ servers:
 paths:
   /v1/cosmetics/:
     get:
+      parameters:
+        - name: cosmetics
+          in: path
+          required: true
+          description: retrieves **cosmetics** in all categories
       responses: 
           "200":
             description: retrieves cosmetics
-        
+          "404": 
+            description: not valid 
 
             
 
