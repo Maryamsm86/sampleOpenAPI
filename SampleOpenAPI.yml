@@ -17,19 +17,41 @@ servers:
   - url: http://dev.zoomit.com
     description: backup server
 paths:
-  /v1/cosmetics/:
+  /v1/cosmetics:
     get:
       parameters:
         - name: cosmetics
           in: path
           required: true
-          description: retrieves **cosmetics** in all categories
+          description: retrieves **cosmetics** 
+          schema: 
       responses: 
           "200":
-            description: retrieves cosmetics
-          "404": 
-            description: not valid 
+            description: list of cosmetics
+            content:
+              application/jason: 
+                schema: 
+                  type: array
+                  minitems: 1
+                  mazitems: 100
+                  items:
+                    type: string
+                    description: cosmetcis names
+                    minLength: 2
+                    maxLength: 25
+  /v1/user/:
+    post:
+      parameters:
+        - name: user
+          description: a newly added user
+          in: path
+          required: true
+      responses:
+        "201": 
+          description: successfully created a user
 
-            
+  /v1/item/:
+    put:
+
 
 
