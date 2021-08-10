@@ -35,10 +35,24 @@ paths:
                   minitems: 1
                   mazitems: 100
                   items:
-                    type: string
-                    description: cosmetcis names
-                    minLength: 2
-                    maxLength: 25
+                    type: object
+                    description: information about each item
+                    properties:
+                      name:
+                        type: string
+                      category:
+                        type: string
+                      vendor:
+                        type: object
+                        description: information about the vendot
+                        properties:
+                          name:
+                            type: string
+                            example: Maryam
+                          phone:
+                            type: integer
+                            example: +46 78304759
+                                          
   /v1/user/:
     post:
       parameters:
