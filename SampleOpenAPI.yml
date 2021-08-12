@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: '1.0'
-  title: makeUP
+  title: Cosmetics API
   description: 'Specification for OpenAPItest course'
   termsOfService: https://example.com/terms/ 
   contact:
